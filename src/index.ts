@@ -57,7 +57,7 @@ let userData: { name: string, age: number } = {
 
 // type definition (not recommended, better to use Interface)
 type Person = { name: string, age: number };
-let userData2 : Person = { name: 'Fedor', age: 123};
+let userData2: Person = { name: 'Fedor', age: 123 };
 
 // type 'never', it's not type 'void'
 function error(): never {
@@ -65,7 +65,7 @@ function error(): never {
 }
 
 // union types (it's like logical OR between types)
-let bothTypes : string | number = "23" // or 57
+let bothTypes: string | number = "23" // or 57
 // bothTypes = true; <- won't compile
 
 /**
@@ -80,7 +80,7 @@ type BankAccount = { money: number, deposit: (value: number) => void };
 let bankAccount: BankAccount = {
   money: 2000,
   deposit(value: number): void {
-      this.money += value;
+    this.money += value;
   }
 };
 
@@ -103,12 +103,12 @@ console.log(myself);
  * **************************************************************
  */
 
- /**
-  * ES6 Features and their usages
-  */
- // arrow functions with default parameters (value 5)
+/**
+ * ES6 Features and their usages
+ */
+// arrow functions with default parameters (value 5)
 const countDown = (start: number = 5) => {
-  while(start > 0) {
+  while (start > 0) {
     console.log(start);
     start--;
   }
@@ -119,7 +119,7 @@ countDown();
 
 
 // SPREAD operator
-const nums: number[] = [1,5,9,34]; // this is an Array of number but array is an Object
+const nums: number[] = [1, 5, 9, 34]; // this is an Array of number but array is an Object
 // if we need to SPREAD the array to the LIST of values, we could use the SPREAD (...) operators
 console.log(Math.max(...nums)); // normally max function expects a LIST of values, not an Array
 
@@ -129,15 +129,15 @@ function makeArray(name: string, ...nums: number[]): void {
   console.log(nums);
 }
 
-makeArray("test", 1,3,45,67);
+makeArray("test", 1, 3, 45, 67);
 
 // DESTRUCTURING arrays
-const myhobbies = ['crossfit','netflix', 'sex'];
+const myhobbies = ['crossfit', 'netflix', 'sex'];
 const [hobby1, hobby2] = myhobbies; // one liner to extract specific items from array
 console.log(hobby1, hobby2); // => crossfit netflix
 
 // DESTRUCTURING objects
-let userData1 = {user: 'Mark', age: 23};
+let userData1 = { user: 'Mark', age: 23 };
 const { user, age } = userData1;
 console.log(user, age); // => Mark 23
 // or we can use alias for keys
@@ -145,35 +145,8 @@ const { user: userName, age: userAge } = userData1;
 console.log(userName, userAge); // => Mark 23
 
 /**
- * Namespaces - allows to group certain code parts into logical groups
+ * TypeScript Class and its definitions
  */
-
-namespace MyCode {
-  const PI: number = 3.14;
-
-  // only exported variables are visible from outside
-  export const calCircumference = (diameter: number): number => {
-    return diameter * PI;
-  }
-  
-  export const calcRectangle = (width: number, height: number): number => {
-    return width * height;
-  }
-}
-
-console.log(MyCode.calcRectangle(5,2));
-
-// this doesn't work:
-// console.log(calcRectangle(5,2));
-// console.log(MyCode.PI);
-
-/**
- * **************************************************************
- */
-
- /**
-  * TypeScript Class and its definitions
-  */
 class PersonClass {
 
   name: string; // Public by default
@@ -186,7 +159,7 @@ class PersonClass {
     this.name = name;
     this.type = "human";
     this.age = 27;
-  }  
+  }
 }
 
 const person12: PersonClass = new PersonClass("Marek", "marek_branicky");
@@ -250,8 +223,8 @@ console.log(plant.species); // -> Default
 
 /** 
  * Class static Properties & Methods
- */ 
-class Helpers {  
+ */
+class Helpers {
   // static members are accessible without having an instance of class
   static PI: number = 3.14
   static calcCircumference(diameter: number) {
@@ -268,7 +241,7 @@ console.log(Helpers.calcCircumference(2)); // -> 6.28
 
 /** 
  * ABSTRACT CLASS -> cannot be instantiated, only inherited
- */ 
+ */
 abstract class Project {
   projectName: string = "Default"; // can have public props though
   budget: number;
@@ -303,7 +276,7 @@ console.log(myProject.calculateBudget());
 
 /** 
  * READ-ONLY properties
- */ 
+ */
 class ReadOnly {
   // public but read-only property
   public readonly name: string;
@@ -319,3 +292,88 @@ console.log(new ReadOnly("Igor").name); // -> Igor
 /**
  * **************************************************************
  */
+
+/**
+* Namespaces - allows to group certain code parts into logical groups
+*/
+
+namespace MyCode {
+  const PI: number = 3.14;
+
+  // only exported variables are visible from outside
+  export const calcCircumference = (diameter: number): number => {
+    return diameter * PI;
+  }
+
+  export const calcRectangle = (width: number, height: number): number => {
+    return width * height;
+  }
+}
+
+console.log(MyCode.calcCircumference(8));
+console.log(MyCode.calcRectangle(5, 2));
+
+// this doesn't work because the PI is not exported from namespace
+// console.log(MyCode.PI);
+
+/**
+ *  Namespaces - can be also splitted into multiple files. In that case
+ *  we need to import the files with defined namespace(s) into the file
+ *  where we want to use the functions, classes or whatever defined
+ *  in external file. Like this:
+ *  file_1.ts -> defines namespace MyCode -> calcCircumference()
+ *  file_2.ts -> defines namespace MyCode -> calcRectangle()
+ *  app.ts {
+ *    /// <reference path="file_1.ts" />
+ *    /// <reference path="file_2.ts" />
+ *    console.log(MyCode.calcCircumference(8));
+ *    console.log(MyCode.calcRectangle(5,2));
+ *  }
+ */
+
+/**
+ * Namespaces - can be also nested
+ */
+namespace MyMath {
+  // nested namespace needs to be exported too
+  export namespace Geometry {
+    export const DIAMETER: number = 123;
+  }
+}
+console.log('Diameter of Geometry', MyMath.Geometry.DIAMETER);
+
+/**
+ * **************************************************************
+ */
+
+/**
+ * MODULES (better alternative to namespaces, but requires ES6 or module loaders)
+ */
+import { calculateSquare } from "./calculations";
+console.log('Square of 45 is:', calculateSquare(45));
+
+/**
+ * **************************************************************
+ */
+
+/**
+ * INTERFACES
+ */
+import { NamedPerson, greet, changeName, DoubleValueFunc } from "./interfaces"
+const person: NamedPerson = {
+  firstName: "Marek",
+  lastName: "Branicky",
+  //  age: 41
+  greetHim: (lastName: string): void => {
+    console.log("Hello Mr.", lastName);
+  }
+}
+greet(person);
+changeName(person, "Max");
+person.greetHim("Handsome");
+
+// function types interfaces
+const doubleValueFunction: DoubleValueFunc = (val1: number, val2: number): number => {
+  return (val1 + val2) * 2; // see the type of this constant
+}
+console.log("Double value function result:", doubleValueFunction(5,8));
