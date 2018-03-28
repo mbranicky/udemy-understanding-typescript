@@ -377,3 +377,38 @@ const doubleValueFunction: DoubleValueFunc = (val1: number, val2: number): numbe
   return (val1 + val2) * 2; // see the type of this constant
 }
 console.log("Double value function result:", doubleValueFunction(5,8));
+
+/**
+ * GENERICS
+ */
+import {simpleEcho, betterEcho, printAll, SimpleMath, GenericMap} from './generics'
+
+console.log(simpleEcho("MAX"));
+console.log(simpleEcho(123));
+console.log(simpleEcho({name: "Max", age: 23}));
+
+// when I use generics, IDE can better help me and I can get compilation errors, when I try to get undefined props or methods
+console.log(betterEcho("MAX").length);
+console.log(betterEcho<number>(123));
+
+// Arrays 
+printAll<string>(['Apple', 'Banana', 'Orange']);
+
+// Classes
+const doMath = new SimpleMath<number>();
+doMath.baseValue = 5;
+doMath.multiplyValue = 4;
+console.log(doMath.calculate()); // -> 20
+
+// Exercise testing of GenericMap:
+const numberMap = new GenericMap<number>();
+numberMap.setItem('apples', 5);
+numberMap.setItem('bananas', 10);
+console.log(numberMap.getItem('bananas')); // -> 10
+numberMap.setItem('bananas', 100);
+numberMap.printMap();
+ 
+const stringMap = new GenericMap<string>();
+stringMap.setItem('name', "Max");
+stringMap.setItem('age', "27");
+stringMap.printMap();
