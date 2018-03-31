@@ -5,15 +5,17 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config build/webpack.config.js",
-    "watch": "webpack --watch --config build/webpack.config.js"
+    "watch": "webpack --watch --config build/webpack.config.js",
+    "dev": "lite-server"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "ts-loader": "^4.0.1",
-    "typescript": "^2.7.2",
-    "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.12"
+    "lite-server": "^2.3.0",
+    "ts-loader": "^4.1.0",
+    "typescript": "^2.8.1",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13"
   },
   "dependencies": {}
 }

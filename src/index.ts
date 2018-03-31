@@ -411,4 +411,5 @@ numberMap.printMap();
 const stringMap = new GenericMap<string>();
 stringMap.setItem('name', "Max");
 stringMap.setItem('age', "27");
+stringMap.setItem('age', "41");
 stringMap.printMap();
