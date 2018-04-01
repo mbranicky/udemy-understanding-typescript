@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "console-log-html": "^2.0.2",
     "lite-server": "^2.3.0",
     "ts-loader": "^4.1.0",
     "typescript": "^2.8.1",

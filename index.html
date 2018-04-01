@@ -6,9 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Understanding TypeScript</title>
+  <link href="./css/index.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
+
+  <!-- console.log container -->
+  <ul id="logContainer"></ul>
+  <script type="application/javascript" src="./node_modules/console-log-html/console-log-html.js"></script> 
+
+  <script>
+    (function () {
+      ConsoleLogHTML.connect(document.getElementById("logContainer"));
+    })();
+  </script>
   <script src="./dist/bundle.js"></script>
 </body>
 
