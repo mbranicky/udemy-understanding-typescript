@@ -413,3 +413,19 @@ stringMap.setItem('name', "Max");
 stringMap.setItem('age', "27");
 stringMap.setItem('age', "41");
 stringMap.printMap();
+
+/**
+ * DECORATORS
+ */
+import { DecoratedPerson, PrintableCar, EditableProject } from './decorators'
+new DecoratedPerson();
+
+const pc = new PrintableCar();
+(<any>pc).print(); // because of bug in TS 2.8 we must explicitely cast to 'any' type, otherwise print() function is not 'visible'
+
+const ep = new EditableProject();
+console.log(ep.calcBudget()); // -> 2000
+// we can try to redefine the function but it fails
+ep.calcBudget = (): number => {
+  return 100;
+};

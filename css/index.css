@@ -1,0 +1,20 @@
+#logContainer {
+  width: 40%;
+  font-size: larger;
+}
+
+#logContainer li {
+  border-top: 1px solid #90ee90;
+  border-left: 1px solid #90ee90;
+  border-right: 1px solid #90ee90;
+  padding: 2px;
+  border-radius: 3px;
+  list-style-type: none;
+}
+
+#logContainer li:last-child {
+  border-bottom: 1px solid #90ee90;
+  padding: 2px;
+  border-radius: 3px;
+  list-style-type: none;
+}
