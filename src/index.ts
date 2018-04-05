@@ -195,7 +195,7 @@ console.log(marek);
  */
 class Plant {
   // I want to have controlled access to this private property
-  private _species: string = "";
+  private _species: string = "_empty";
 
   // GETTER for property _species
   get species(): string {
@@ -425,7 +425,12 @@ const pc = new PrintableCar();
 
 const ep = new EditableProject();
 console.log(ep.calcBudget()); // -> 2000
-// we can try to redefine the function but it fails
-ep.calcBudget = (): number => {
-  return 100;
-};
+// we can try to redefine the function but it fails with JS Exception
+try {
+  ep.calcBudget = (): number => {
+    return 100;
+  };  
+} catch (e) {
+  console.error(e);
+}
+console.log(ep.calcBudget()); // -> 2000

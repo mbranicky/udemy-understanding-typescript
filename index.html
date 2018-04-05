@@ -10,16 +10,17 @@
 </head>
 
 <body>
-
   <!-- console.log container -->
-  <ul id="logContainer"></ul>
+  <ul id="log"></ul>
+  
   <script type="application/javascript" src="./node_modules/console-log-html/console-log-html.js"></script> 
 
   <script>
     (function () {
-      ConsoleLogHTML.connect(document.getElementById("logContainer"));
+      ConsoleLogHTML.connect(document.getElementById("log"), {}, false, false, false);
     })();
   </script>
+
   <script src="./dist/bundle.js"></script>
 </body>
 

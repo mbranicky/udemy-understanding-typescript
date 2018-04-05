@@ -1,20 +1,26 @@
-#logContainer {
-  width: 40%;
-  font-size: larger;
+body {
+  background-color: #263238;
+  font-family: sans-serif;
+}
+#log {
+  padding-left: 10px;
 }
 
-#logContainer li {
-  border-top: 1px solid #90ee90;
-  border-left: 1px solid #90ee90;
-  border-right: 1px solid #90ee90;
-  padding: 2px;
-  border-radius: 3px;
+#log li {
+  padding: 3px;
   list-style-type: none;
+  border-bottom: 1px dotted #50646f;
 }
 
-#logContainer li:last-child {
-  border-bottom: 1px solid #90ee90;
-  padding: 2px;
-  border-radius: 3px;
-  list-style-type: none;
+#log li[data-level='log'] {
+  color: #d0cccc;
+}
+
+#log li[data-level='error'] {
+  color: #e13535;
+}
+
+#log li:before {
+  content: "\25A0";
+  padding-right: 5px;
 }
