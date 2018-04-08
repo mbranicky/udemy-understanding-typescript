@@ -7,7 +7,7 @@
  */
 const Logger = (constructorFn: Function) => {
   console.log(constructorFn);
-}
+};
 
 @Logger
 export class DecoratedPerson {
@@ -21,10 +21,10 @@ export class DecoratedPerson {
  */
 const Printable = (constructorFn: Function) => {
   // here we add a new 'print' function to the prototype of given constructor function
-  constructorFn.prototype.print = function () {
+  constructorFn.prototype.print = function() {
     console.log(this);
-  }
-}
+  };
+};
 
 @Printable
 export class PrintableCar {
@@ -42,12 +42,12 @@ const Editable = (value: boolean) => {
   return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
     console.log("Editable decorator called", target, propertyKey, descriptor);
     descriptor.writable = value; // this way we can set whether the decorated method definition will be replaceable
-  }
-}
+  };
+};
 
 export class EditableProject {
   @Editable(false)
   calcBudget(): number {
     return 2000;
-  };
+  }
 }

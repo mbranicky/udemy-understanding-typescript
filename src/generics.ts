@@ -3,7 +3,7 @@
  */
 export const simpleEcho = (data: any): any => {
   return data;
-}
+};
 
 /**
  * Better as use Any is use Generic types. The <T> references the type which is expected to be returned.
@@ -48,8 +48,7 @@ export class SimpleMath<T extends number> {
  * Exercise - generic map:
  */
 export class GenericMap<T> {
-
-  private map: {[key: string]: T} = {}
+  private map: { [key: string]: T } = {};
 
   // should create a new key-value pair
   public setItem(key: string, item: T): void {
