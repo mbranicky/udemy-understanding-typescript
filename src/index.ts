@@ -432,7 +432,12 @@ stringMap.printMap();
 /**
  * DECORATORS
  */
-import { DecoratedPerson, PrintableCar, EditableProject, Course } from "./decorators";
+import {
+  DecoratedPerson,
+  PrintableCar,
+  EditableProject,
+  Course
+} from "./decorators";
 new DecoratedPerson();
 
 const pc = new PrintableCar();
