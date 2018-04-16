@@ -380,6 +380,10 @@ const doubleValueFunction: DoubleValueFunc = (
 console.log("Double value function result:", doubleValueFunction(5, 8));
 
 /**
+ * **************************************************************
+ */
+
+/**
  * GENERICS
  */
 import {
@@ -422,9 +426,13 @@ stringMap.setItem("age", "41");
 stringMap.printMap();
 
 /**
+ * **************************************************************
+ */
+
+/**
  * DECORATORS
  */
-import { DecoratedPerson, PrintableCar, EditableProject } from "./decorators";
+import { DecoratedPerson, PrintableCar, EditableProject, Course } from "./decorators";
 new DecoratedPerson();
 
 const pc = new PrintableCar();
@@ -434,6 +442,7 @@ const ep = new EditableProject();
 console.log(ep.calcBudget()); // -> 2000
 // we can try to redefine the function but it fails with JS Exception
 try {
+  // @Editable(false) -> exception
   ep.calcBudget = (): number => {
     return 100;
   };
@@ -441,3 +450,10 @@ try {
   console.error(e);
 }
 console.log(ep.calcBudget()); // -> 2000
+
+const course = new Course();
+course.printStudents("anything", true); // -> 10000
+
+/**
+ * **************************************************************
+ */

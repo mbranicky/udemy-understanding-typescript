@@ -40,7 +40,7 @@ const Editable = (value: boolean) => {
   // in fact this return value is the method decorator
   // http://www.typescriptlang.org/docs/handbook/decorators.html
   return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
-    console.log("Editable decorator called", target, propertyKey, descriptor);
+    console.log("Editable METHOD decorator called. TARGET: ", target, ", PROP KEY: ", propertyKey, " DESCRIPTOR: ", descriptor);
     descriptor.writable = value; // this way we can set whether the decorated method definition will be replaceable
   };
 };
@@ -49,5 +49,35 @@ export class EditableProject {
   @Editable(false)
   calcBudget(): number {
     return 2000;
+  }
+}
+
+/**
+ * PROPERTY type of decorator - can't get PropertyDescriptor as parameter but still can return it.
+ */
+const WritableProperty = (value: boolean) => {
+  return (target: any, propertyKey: string): PropertyDescriptor => {
+    console.log("Writeable PROPERTY decorator called. TARGET: ", target, ", PROP KEY: ", propertyKey);
+    const newPropDescr: PropertyDescriptor = {
+      writable: value
+    }
+    return newPropDescr;
+  }
+}
+
+/**
+ * PARAMETER type of decorator
+ */
+const PrintInfoDecorator = (target: any, methodName: string, paramIndex: number) => {
+  console.log("Parameter decorator, TARGET: ", target, " METHOD NAME: ", methodName, " PARAM INDEX: ", paramIndex);
+}
+
+export class Course {
+  printStudents(mode: string, @PrintInfoDecorator printAll: boolean) {
+    if (printAll) {
+      console.log(10000);
+    } else {
+      console.log(100);
+    }
   }
 }
