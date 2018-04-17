@@ -75,7 +75,7 @@ const PrintInfoDecorator = (target: any, methodName: string, paramIndex: number)
 export class Course {
   printStudents(mode: string, @PrintInfoDecorator printAll: boolean) {
     if (printAll) {
-      console.log(10000);
+      console.info(10000);
     } else {
       console.log(100);
     }

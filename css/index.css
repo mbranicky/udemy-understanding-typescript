@@ -4,10 +4,11 @@
 }
 
 #log li {
-  border-bottom: 1px solid #789;  
+  border-bottom: 1px solid #789;
+  font-weight: 100;  
 }
 
 #log li:before {
-  content: "\003e";
+  content: "\00bb";
   padding-right: 5px;
 }

@@ -454,7 +454,7 @@ try {
 } catch (e) {
   console.error(e);
 }
-console.log(ep.calcBudget()); // -> 2000
+console.warn(ep.calcBudget()); // -> 2000
 
 const course = new Course();
 course.printStudents("anything", true); // -> 10000
