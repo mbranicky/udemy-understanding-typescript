@@ -1,22 +1,28 @@
 {
-  "name": "udemy-typescript",
+  "name": "udemy-typescript-reactjs",
   "version": "1.0.0",
-  "description": "Examples and study notes taken from UDEMY - Understanding TypeScript Course",
+  "description": "Examples and study notes taken from UDEMY - Understanding TypeScript Course, ReactJS Module",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config build/webpack.config.js",
-    "watch": "webpack --watch --config build/webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -d --config build/webpack.config.js",
+    "build:prod": "webpack -p --config build/webpack.config.js",
+    "watch": "webpack --watch -d --config build/webpack.config.js",
     "dev": "lite-server"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "console-log-html": "^2.0.2",
-    "lite-server": "^2.3.0",
-    "ts-loader": "^4.1.0",
-    "typescript": "^2.8.1",
-    "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
   },
-  "dependencies": {}
+  "devDependencies": {
+    "@types/react": "^16.3.11",
+    "@types/react-dom": "^16.0.5",
+    "lite-server": "^2.3.0",
+    "ts-loader": "^4.2.0",
+    "typescript": "^2.8.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14"
+  }
 }
