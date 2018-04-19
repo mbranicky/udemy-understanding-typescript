@@ -14,7 +14,12 @@
   "license": "ISC",
   "devDependencies": {
     "console-log-html": "^2.0.2",
+    "css-loader": "^0.28.11",
+    "extract-loader": "^2.0.1",
+    "file-loader": "^1.1.11",
     "lite-server": "^2.3.0",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^7.0.1",
     "ts-loader": "^4.2.0",
     "typescript": "^2.8.1",
     "webpack": "^4.6.0",

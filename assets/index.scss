@@ -1,0 +1,12 @@
+#log {
+  list-style: none;
+  margin-left: -30px;
+  li {
+    border-bottom: 1px solid #789;
+    font-weight: 100;
+    &:before {
+      content: "\00bb";
+      padding-right: 5px;
+    }
+  }
+}
