@@ -19,7 +19,7 @@
     "file-loader": "^1.1.11",
     "hoek": "^5.0.4",
     "lite-server": "^2.5.3",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "sass-loader": "^7.1.0",
     "ts-loader": "^4.5.0",
     "typescript": "^2.9.2",
